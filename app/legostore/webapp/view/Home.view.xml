@@ -1,0 +1,84 @@
+<mvc:View height="100%"
+	  xmlns="sap.m"
+	  xmlns:f="sap.f"
+	  xmlns:mvc="sap.ui.core.mvc"
+         controllerName="lego.store.legostore.controller.Home">
+   <f:DynamicPage id="dynamicPageId"
+				   toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Products "/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+
+		<!-- DynamicPage Content -->
+		<f:content>
+			<Table
+				id="productsTable"
+				mode="SingleSelectMaster"
+				itemPress="onListItemPress"
+				inset="false"
+				items="{
+					path: '/material',
+					sorter: {
+						path: 'DESCRIPTION'
+					}
+				}"
+				class="sapFDynamicPageAlignContent"
+				width="auto">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<SearchField search="onSearch" width="17.5rem"/>
+						<OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="12em">
+						<Text text="Product" />
+					</Column>
+					<Column	hAlign="Center">
+						<Text text="Quantity" />
+					</Column>
+					<Column	hAlign="End">
+						<Text text="Price" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation">
+						<cells>
+							<ObjectIdentifier title="{DESCRIPTION}" text="{SKU}" />
+							<ObjectNumber
+									number="{
+										parts:[{path:'Quantity'}],
+										type: 'sap.ui.model.type.Currency',
+										formatOptions: {showMeasure: false}
+									}"
+									unit="PZ" 
+									state="{= ${Quantity} &lt;= 4 ? 'Error' : (${Quantity} &lt;= 10 ? 'Warning' : 'Success') }"/>
+									
+							<ObjectNumber
+									number="{
+										parts:[{path:'Price'}],
+										type: 'sap.ui.model.type.Currency',
+										formatOptions: {showMeasure: false}
+									}"
+									unit="EUR" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+
+		<!-- DynamicPage Footer -->
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="Cart"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

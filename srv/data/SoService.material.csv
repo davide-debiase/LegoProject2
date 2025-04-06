@@ -1,0 +1,8 @@
+SKU,Description,startDate,endDate,Active,Quantity,Price
+10295,"Porsche 911",2020-04-01,9999-12-31,true,10,200.00
+10296,"Ferrari F40",2020-04-01,9999-12-31,true,20,200.00
+10297,"Lamborghini Urus",2020-04-01,9999-12-31,true,5,200.00
+30003,"Hogwarts Castle",2021-04-01,9999-12-31,true,3,200.00
+30004,"Hoghwarts Express",2021-04-01,9999-12-31,true,2,200.00
+20005,"Stranger Things Station",2022-04-01,9999-12-31,true,1,200.00
+20006,"Millenium Falcon",2000-04-01,9999-12-31,true,20,200.00
